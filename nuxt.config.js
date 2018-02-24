@@ -18,10 +18,8 @@ module.exports = {
   */
   loading: { color: '#3B8070' },
   css: [
-    // CSS file in the project
-    '@/assets/styles/main.css',
     // SCSS file in the project
-    '@/assets/styes/main.scss'
+    '@/assets/styles/main.scss'
   ],
   /*
   ** Build configuration

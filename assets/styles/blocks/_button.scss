@@ -1,0 +1,35 @@
+$button__font-size: 12px;
+$button__padding: 20px;
+
+button {
+  line-height: 1.1;
+  background-color: transparent;
+  border-color: transparent;
+  outline: 0;
+  transition: color 0.4s;
+  position: relative;
+  border-radius: 0;
+  padding: 0;
+  border-width: 1px;
+}
+
+//default styles
+.btn {
+  display: inline-block;
+  background-color: transparent;
+  border-color: transparent;
+  transition: all 0.4s;
+  position: relative;
+  border-radius: 0;
+  border-width: 1px;
+  text-align: center;
+  padding: px-to-em($button__padding/1.5);
+
+  // min-width: px-to-em($button__min-width);
+  
+  @include respond-to('between') {
+    // min-width: px-to-em($button__min-width--tablet);
+    padding-top: px-to-em($button__padding* 1.5);
+    padding-bottom: px-to-em($button__padding* 1.5);
+  }
+}
