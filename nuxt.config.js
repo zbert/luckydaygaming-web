@@ -1,4 +1,7 @@
 module.exports = {
+  env: {
+    KEYSTONE_URL: process.env.KEYSTONE_URL || 'https://luckydaygaming-cms.herokuapp.com'
+  },
   /*
   ** Headers of the page
   */
