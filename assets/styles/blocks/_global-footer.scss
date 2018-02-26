@@ -1,0 +1,35 @@
+
+.global-footer {
+  background-color: $color__black;
+  color: $color__white;
+  text-align: center;
+  padding-top: px-to-em($spacing__lg);
+  text-transform: uppercase;
+  
+  &__links,
+  &__heading {
+    font-weight: map-get($map: $font-weights, $key: bold );
+    letter-spacing: 0.1em;
+  }
+
+  &__links-item {
+    & + & {
+      margin-top: px-to-em($spacing__sm)
+    }
+  }
+
+  &__heading {
+    margin-bottom: px-to-em($spacing__sm)
+  }
+
+  &__copyright {
+    text-transform: none;
+    font-family: $font-family__secondary;
+    font-size: px-to-em($font-size__smallest);
+  }
+
+	@include respond-to('between') {
+		// padding-left: px-to-em($wrapper-padding * 3);
+  	// padding-right: px-to-em($wrapper-padding * 3);
+	}
+}

@@ -1,21 +1,37 @@
 <template>
   <div class="global-footer">
-    
+    <div class="wrapper global-footer__body">
+      <div class="global-footer__column">
+        <ul class="global-footer__links">
+          <li v-for="(option, index) in footer.links" class="global-footer__links-item" :key="'footerlink' + index">
+            <a :href="option.url" class="global-footer__links-anchor">{{option.label}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="global-footer__column">
+        <h3 class="global-footer__heading">{{footer.contact.header}}</h3>
+      </div>
+      <div class="global-footer__column">
+        <social-links :social-options="socialLinks"></social-links>
+      </div>
+      <div class="global-footer__column global-footer__column--main">
+        <img src="/images/brand-logo.png" class="global-footer__logo" />
+        <p class="global-footer__copyright">{{footer.copyright}}</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-
+import SocialLinks from '~/components/SocialLinks.vue'
 
 export default {
-  asyncData ({ params }) {
-    return axios.get(`${process.env.KEYSTONE_URL}/api/layouts/default`)
-      .then(res => res.data)
-      .catch(reason => {
-        console.error(reason)
-        return {}
-      })
+  data: ()=> ({
+    socialLinks: [{"label":"Facebook","icon":"facebook","url":"https://www.facebook.com"},{"label":"Instagram","icon":"instagram","url":"https://www.instagram.com"},{"label":"Youtube","icon":"youtube","url":"https://www.youtube.com"},{"label":"Twitter","icon":"twitter","url":"https://www.twitter.com"}]
+  }),
+  props: [ 'footer' ],
+  components: {
+    SocialLinks
   }
 }
 </script>

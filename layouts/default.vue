@@ -1,7 +1,6 @@
 <template>
   <div>
     <nuxt/>
-    <global-footer></global-footer>
   </div>
 </template>
 

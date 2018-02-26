@@ -12,8 +12,8 @@ body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background-color: $color__black;
-  font: map-get($font-weights, refular) 100% $font-family__body;
+	
+  font: map-get($font-weights, regular) 100% $font-family__primary;
 	line-height: $font__line-height;
 }
 

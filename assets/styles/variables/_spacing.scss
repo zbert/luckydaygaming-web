@@ -2,11 +2,11 @@
 $spacing-base: $font-size-base;
 
 //variation
-$spacing__sm: 20px;
-$spacing__md: 40px;
-$spacing__lg: 60px;
-$spacing__xl: 95px;
+$spacing__sm: 10px;
+$spacing__md: 32px;
+$spacing__lg: 50px;
+$spacing__xl: 80px;
 
-$spacing__unit: 10px;
+$spacing__unit: 24px;
 
 $spacing__normalize: $spacing-base * $font__line-height;

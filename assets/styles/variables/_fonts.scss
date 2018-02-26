@@ -9,20 +9,22 @@ $font__line-height: 1.5;
 
 $font-size__hero: 74px !default;
 
-$font-size__h1: 42px !default;
-$font-size__h2: 35px !default;
-$font-size__h3: 30px !default;
-$font-size__h4: 24px !default;
-$font-size__h5: 18px !default;
+$font-size__h1: 24px !default;
+$font-size__h2: 20px !default;
+$font-size__h3: 16px !default;
+$font-size__h4: 16px !default;
+$font-size__h5: 14px !default;
 $font-size__h6: 14px !default;
 
-$font-size__hero--mobile: 36px !default;
-$font-size__page-title--mobile: 45px !default;
-$font-size__h1--mobile: 24px !default;
-$font-size__h2--mobile: 28px !default;
-$font-size__h3--mobile: 24px !default;
-$font-size__h4--mobile: 20px !default;
+$font-size__hero--tablet: 36px !default;
+$font-size__page-title--tablet: 45px !default;
+$font-size__h1--tablet: 36px !default;
+$font-size__h2--tablet: 24px !default;
+$font-size__h3--tablet: 18px !default;
+$font-size__h4--tablet: 18px !default;
 
+$font-size__small: 14px;
+$font-size__smallest: 12px;
 
 //------------------------------------------
 //				Helpful Functions for font conversion to EM
@@ -39,12 +41,14 @@ $font-size__h4--mobile: 20px !default;
 }
 
 
+$font-family__roboto-condensed: 'Roboto Condensed', sans-serif;
+$font-family__roboto: 'Roboto', sans-serif;
 
-$font-family__josefin: 'Josefin Sans', sans-serif;
-$font-family__playfair: 'Playfair Display', serif;
 
-$font-family__titles: $font-family__josefin;
-$font-family__body: $font-family__playfair;
+
+$font-family__secondary: $font-family__roboto;
+$font-family__primary: $font-family__roboto-condensed;
+
 
 $font-weights: (
   regular: 400,
