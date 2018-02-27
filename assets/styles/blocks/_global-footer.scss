@@ -3,8 +3,12 @@
   background-color: $color__black;
   color: $color__white;
   text-align: center;
-  padding-top: px-to-em($spacing__lg);
+  padding: px-to-em($spacing__lg) 0;
   text-transform: uppercase;
+
+  &__logo {
+    width: px-to-em(72px);
+  }
   
   &__links,
   &__heading {
@@ -19,13 +23,39 @@
   }
 
   &__heading {
-    margin-bottom: px-to-em($spacing__sm)
+    font-size: 1em;
+    margin-bottom: 1em;
   }
 
   &__copyright {
     text-transform: none;
     font-family: $font-family__secondary;
     font-size: px-to-em($font-size__smallest);
+    margin-top: px-to-em($spacing__md);
+  }
+
+  .social-links {
+    $icon-dimension: 32px;
+    &__item {
+      margin:0 0.5em;
+    }
+
+    &__icon {
+      border-radius: 50%;
+      width: px-to-em($icon-dimension);
+      height: px-to-em($icon-dimension);
+      background-color: $color__brand-gold;
+      color: $color__white;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__column {
+    & + & {
+      margin-top: px-to-em($spacing__md);
+    }
   }
 
 	@include respond-to('between') {

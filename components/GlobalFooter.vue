@@ -12,6 +12,7 @@
         <h3 class="global-footer__heading">{{footer.contact.header}}</h3>
       </div>
       <div class="global-footer__column">
+        <h3 class="global-footer__heading">{{footer.social.header}}</h3>
         <social-links :social-options="socialLinks"></social-links>
       </div>
       <div class="global-footer__column global-footer__column--main">
