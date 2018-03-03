@@ -10,6 +10,11 @@
       </div>
       <div class="global-footer__column">
         <h3 class="global-footer__heading">{{footer.contact.header}}</h3>
+        <p v-for="(option, index) in footer.contact.links" :key="'contact-option-' + index" class="global-footer__contact">
+          <span class="global-footer__contact-label">{{option.prefix}}</span>
+          <a :href="option.url" class="global-footer__contact-link">{{option.label}}</a>
+        </p>
+        <p class="global-footer__contact"></p>
       </div>
       <div class="global-footer__column">
         <h3 class="global-footer__heading">{{footer.social.header}}</h3>
