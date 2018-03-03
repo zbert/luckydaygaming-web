@@ -15,10 +15,10 @@ $screen-xxl:                 1920px !default;
 
 
 $breakpoints: (
-  'landscape':  px-to-em($screen-xs), // 480px
-  'between':  px-to-em($screen-sm), //767px
-  'desktop': px-to-em($screen-md), //992px
-  'desktop-large':  px-to-em($screen-xl)
+  'landscape':  em($screen-xs), // 480px
+  'between':  em($screen-sm), //767px
+  'desktop': em($screen-md), //992px
+  'desktop-large':  em($screen-xl)
 ) !default;
 
 /// Mixin to manage responsive breakpoints
@@ -36,7 +36,7 @@ $breakpoints: (
 
   // If the key doesn't exist in the map
   @else {
-    @media screen and (min-width: px-to-em($device-width, $font-size-base)) {
+    @media screen and (min-width: em($device-width, $font-size-base)) {
       @content;
     }
   }

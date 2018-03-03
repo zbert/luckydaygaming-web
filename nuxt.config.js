@@ -25,6 +25,9 @@ module.exports = {
     // SCSS file in the project
     '@/assets/styles/main.scss'
   ],
+  router: {
+    middleware: 'get-layout'
+  },
   /*
   ** Build configuration
   */

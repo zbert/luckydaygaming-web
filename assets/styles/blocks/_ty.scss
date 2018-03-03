@@ -1,0 +1,84 @@
+@mixin ty-heading1() {
+	@include font($family: $font-family__primary, $size: $font-size__h1, $weight: 'bold');
+	
+line-height: 1.25;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	
+	@include respond-to('between') {
+		font-size: em($font-size__h1--tablet);
+	}
+}
+@mixin ty-heading2() {
+	@include font($family: $font-family__primary, $size: $font-size__h2, $weight: 'bold');
+	
+  line-height: 1.13;
+  letter-spacing: 0.2em;
+	
+	@include respond-to('between') {
+		font-size: em($font-size__h2--tablet);
+	}
+}
+
+@mixin ty-heading3() {
+	@include font($family: $font-family__primary, $size: $font-size__h3, $weight: 'bold');
+	
+  line-height: 1.5;
+  letter-spacing: 0.1;
+	
+	@include respond-to('between') {
+		font-size: em($font-size__h3--tablet);
+	}
+}
+
+@mixin ty-infographic() {
+	@include font($family: $font-family__primary, $size: $font-size__infographic, $weight: 'bold');
+	
+  line-height: 1;
+	
+	@include respond-to('between') {
+		font-size: em($font-size__infographic--tablet);
+	}
+}
+
+.ty__heading1 {
+  @include ty-heading1();
+}
+.ty__heading2 {
+  @include ty-heading2();
+}
+.ty__heading3 {
+  @include ty-heading3();
+}
+.ty__infographic {
+  @include ty-infographic();
+}
+
+.ty {
+	&__body-display {
+		@include font($family: $font-family__primary, $size: $font-size__body-display);
+
+		line-height: 1.67;
+		letter-spacing: 0.1em;
+	}
+
+	&__body-normal {
+		@include font($family: $font-family__secondary, $size: $font-size__body-normal);
+
+		line-height: 1.5;
+		letter-spacing: 0.1em;
+	}
+
+	&__caption-small {
+		@include font($family: $font-family__secondary, $size: $font-size__caption-small);
+
+		line-height: 1.5;
+		letter-spacing: 0.1em;
+	}
+
+	@include respond-to('between') {
+		&__body-display {
+			font-size: em($font-size__body-display--tablet);
+		}	
+	}
+}

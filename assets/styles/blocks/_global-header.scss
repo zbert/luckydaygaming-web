@@ -1,0 +1,11 @@
+$global-header__height: 70px;
+$global-header__height--tablet: 226px;
+
+.global-header {
+  height: em($global-header__height);
+
+
+  @include respond-to('between') {
+    height: em($global-header__height--tablet);
+  }
+}

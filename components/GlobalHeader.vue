@@ -42,7 +42,7 @@ export default {
     Embellishment
   },
   computed: {
-    ...mapState(['footer']),
+    ...mapState(['header']),
     socialLinks () {
       return this.footer.social.links.map(link => ({
         ...link,
