@@ -1,54 +1,81 @@
 <template>
-  <div class="global-footer">
-    <div class="wrapper global-footer__body">
-      <div class="global-footer__column">
-        <embellishment></embellishment>
-        <ul class="global-footer__links">
-          <li v-for="(option, index) in footer.links" class="global-footer__links-item" :key="'footerlink' + index">
-            <a :href="option.url" class="global-footer__links-anchor">{{option.label}}</a>
+  <header class="global-header">
+    <div class="wrapper global-header__body">
+      <a href="/" class="global-header__brand">
+        <img :src="logo.url" :alt="logo.alt" class="global-header__brand-logo">
+        <img :src="logoText.url" :alt="logoText.alt" class="global-header__brand-text">
+      </a>
+
+      <nav class="global-header__nav">
+        <ul class="global-header__nav-left">
+          <li 
+            v-for="(link, index) in header.links.left" 
+            :key="'leftNav' + index"
+            class="global-header__nav-item">
+
+            <a v-if="link.children" :href="link.url" class="global-header__nav-link global-header__nav-toggle" @click.prevent="toggleNav(index)">{{link.label}}</a>
+            <a v-else :href="link.url" class="global-header__nav-link">{{link.label}}</a>
+
+            <ul v-if="link.children" class="global-header__nav-children">
+              <li v-for="(child, index) in link.children" :key="'childNode' + index"
+                class="global-header__nav-children-item">
+                <a :href="child.url" class="global-header__nav-link">{{child.label}}</a>
+              </li>
+            </ul>
           </li>
         </ul>
-      </div>
-      <div class="global-footer__column">
-        <embellishment></embellishment>
-        <h3 class="global-footer__heading">{{footer.contact.header}}</h3>
-        <p v-for="(option, index) in footer.contact.links" :key="'contact-option-' + index" class="global-footer__contact">
-          <span class="global-footer__contact-label">{{option.prefix}}</span>
-          <a :href="option.url" class="global-footer__contact-link">{{option.label}}</a>
-        </p>
-        <p class="global-footer__contact"></p>
-      </div>
-      <div class="global-footer__column">
-        <embellishment></embellishment>
-        <h3 class="global-footer__heading">{{footer.social.header}}</h3>
-        <social-links :social-options="socialLinks"></social-links>
-      </div>
-      <div class="global-footer__column global-footer__column--main">
-        <img src="/images/brand-logo.png" class="global-footer__logo" />
-        <p class="global-footer__copyright">{{footer.copyright}}</p>
+        <ul class="global-header__nav-right">
+          <li
+            v-for="(link, index) in header.links.right" 
+            :key="'leftNav' + index"
+            class="global-header__nav-item">
+            <a :href="link.url" class="global-header__nav-link">{{link.label}}</a>
+
+            <ul v-if="link.children" class="global-header__nav-children">
+              <li v-for="(child, index) in link.children" :key="'childNode' + index"
+                class="global-header__nav-children-item">
+                <a :href="child.url" class="global-header__nav-link">{{child.label}}</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="global-header__actions">
+        <button class="global-header__search-toggle">
+          <i class="icon icon-search"></i>
+        </button>
+        <button class="global-header__menu-toggle">
+          <i class="icon icon-hamburger"></i>
+        </button>
       </div>
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import SocialLinks from '~/components/SocialLinks.vue'
-import Embellishment from '~/components/Embellishment.vue'
 
 export default {
-  components: {
-    SocialLinks,
-    Embellishment
-  },
   computed: {
     ...mapState(['header']),
-    socialLinks () {
-      return this.footer.social.links.map(link => ({
-        ...link,
-      }))
+    logo () {
+      return {
+        url: this.header.brand.logo.url,
+        alt: this.header.brand.logo.alt
+      }
+    },
+    logoText () {
+      return {
+        url: this.header.brand.text.url,
+        alt: this.header.brand.text.alt
+      }
+    }
+  },
+  methods: {
+    toggleNav() {
+
     }
   }
 }
 </script>
-

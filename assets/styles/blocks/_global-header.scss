@@ -2,10 +2,128 @@ $global-header__height: 70px;
 $global-header__height--tablet: 226px;
 
 .global-header {
-  height: em($global-header__height);
+  $logo-width: em(34px);
+  $logo-width--tablet: em(70px);
+  $logo-width--desktop: em(160px);
+  $logo-text-width: em(132px);
 
+  position: absolute;
+  width: 100%;
+  height: em($global-header__height);
+  background-color: $color__black-dark;
+  z-index: $zindex__global-header;
+
+
+  &__body {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  &__brand {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: $logo-width + $logo-text-width + em($spacing__unit);
+    
+
+    &-logo {
+      width: $logo-width;
+      flex-shrink: 0;
+    }
+
+    &-text {
+      width: $logo-text-width;
+      flex-shrink: 0;
+      margin-left: em($spacing__sm)
+    }
+  }
+
+  &__search-toggle,
+  &__menu-toggle {
+    color: $color__white;
+    font-size: em(24px);
+  }
+
+  &__menu-toggle {
+    margin-left: 0.5em;
+  }
+
+  &__nav {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    border-top: 3px solid #f5a623;
+    background-color: $color__black-dark;
+    
+    text-align: center;
+  }
+
+  &__nav-item {
+    border-bottom: 1px solid $color__gray-text;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  &__nav-link {
+    color: $color__white;
+    letter-spacing: 0.1em;
+    font-weight: map-get($map: $font-weights, $key: 'bold');
+    text-transform: uppercase;
+    padding-top: em($spacing__unit);
+    padding-bottom: em($spacing__unit);
+    display: inline-block;
+    width: 100%;
+  }
+
+  &__nav-children {
+    &-item {
+      &:last-child {
+        padding-bottom: em($spacing__md);
+      }
+    }
+  }
+
+
+  &__nav-children & {
+    &__nav-link {
+      text-transform: none;
+      padding-top: em($spacing__sm);
+      padding-bottom: em($spacing__sm);
+    }
+  }
 
   @include respond-to('between') {
     height: em($global-header__height--tablet);
+
+    &__brand {
+      display: block;
+
+      &-logo {
+        width: $logo-width--tablet
+      }
+
+      &-text {
+        display: none;
+      }
+    }
+
+    
+  }
+
+  @include respond-to('desktop') {
+    height: em($global-header__height--tablet);
+
+    &__brand {
+      display: block;
+      &-logo {
+        width: $logo-width--desktop
+      }
+    }
   }
 }
