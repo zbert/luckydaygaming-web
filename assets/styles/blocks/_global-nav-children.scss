@@ -1,0 +1,24 @@
+.global-nav-children {
+  
+  &__bar {
+    position: relative;
+  }
+
+  &__option {
+    &:last-child {
+      padding-bottom: em($spacing__md);
+    }
+  }
+
+  .global-header {
+    &__nav-link {
+      text-transform: none;
+      padding-top: em($spacing__sm);
+      padding-bottom: em($spacing__sm);
+    }
+  }
+
+  @include respond-to('between') {
+    
+  }
+}

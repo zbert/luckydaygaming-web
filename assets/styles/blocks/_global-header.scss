@@ -73,29 +73,13 @@ $global-header__height--tablet: 226px;
   &__nav-link {
     color: $color__white;
     letter-spacing: 0.1em;
+    line-height: 1.4;
     font-weight: map-get($map: $font-weights, $key: 'bold');
     text-transform: uppercase;
     padding-top: em($spacing__unit);
     padding-bottom: em($spacing__unit);
     display: inline-block;
     width: 100%;
-  }
-
-  &__nav-children {
-    &-item {
-      &:last-child {
-        padding-bottom: em($spacing__md);
-      }
-    }
-  }
-
-
-  &__nav-children & {
-    &__nav-link {
-      text-transform: none;
-      padding-top: em($spacing__sm);
-      padding-bottom: em($spacing__sm);
-    }
   }
 
   @include respond-to('between') {
@@ -112,8 +96,6 @@ $global-header__height--tablet: 226px;
         display: none;
       }
     }
-
-    
   }
 
   @include respond-to('desktop') {
