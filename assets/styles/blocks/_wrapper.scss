@@ -1,4 +1,4 @@
-$wrapper-padding: 35px;
+$wrapper-padding: 20px;
 $wrapper-padding--tablet: 30px;
 
 $wrapper-max-width: 1440px;
@@ -6,7 +6,7 @@ $wrapper-max-width-narrow: 575px;
 
 .wrapper {
 	width: 100%;
-  max-width: em($wrapper-max-width) +  em($wrapper-padding * 2);
+  max-width: em($wrapper-max-width) +  em($wrapper-padding--tablet * 2);
   padding-left: em($wrapper-padding);
   padding-right: em($wrapper-padding);
   margin-left: auto;
@@ -19,7 +19,7 @@ $wrapper-max-width-narrow: 575px;
 	}
 
 	@include respond-to('between') {
-		// padding-left: em($wrapper-padding * 3);
-  	// padding-right: em($wrapper-padding * 3);
+		padding-left: em($wrapper-padding--tablet);
+  	padding-right: em($wrapper-padding--tablet);
 	}
 }

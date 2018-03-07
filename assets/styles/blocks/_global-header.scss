@@ -101,7 +101,7 @@ $global-header__height--desktop: 226px;
     width: 100%;
   }
 
-  @include respond-to('between') {
+  @include respond-to('desktop') {
     height: em($global-header__height--tablet);
 
     &__nav {
@@ -119,26 +119,53 @@ $global-header__height--desktop: 226px;
       
     }
 
+    &__nav-item {
+      &:first-child {
+        .global-header__nav-link {
+          padding-left: 0;
+        }
+      }
+      &:last-child {
+        .global-header__nav-link {
+          padding-right: 0;
+        }
+      }
+    }
+
+    &__nav-link {
+      padding: em(30px) 1em;
+    }
+
     &__nav-right,
     &__nav-left {
       display: inline-flex;
       flex-wrap: nowrap;
       align-items: center;
-      justify-content: space-between;
+      width: 50%;
+    }
+
+    
+    // &__nav-left {
+    //   padding-right: $logo-width--tablet/2
+    // }
+
+    &__nav-right {
+      padding-right: 2em;
+      text-align: right;
+      justify-content: flex-end;
     }
 
     &__nav-item {
       border-bottom: 0;
       padding: 0;
     }
-
-
   
     &__brand {
       @include center-align(horizontal);
       display: block;
       width: auto;
       top: 1em;
+      margin-left: em(32px);
 
       &-logo {
         width: $logo-width--tablet
@@ -149,13 +176,18 @@ $global-header__height--desktop: 226px;
       }
     }
 
+    &__body {
+      padding-left: em($wrapper-padding);
+      padding-right: em($wrapper-padding);
+    }
+
     &__menu-toggle {
       display: none;
     }
   }
 
-  @include respond-to('desktop') {
-    height: em($global-header__height--tablet);
+  @include respond-to('desktop-large') {
+    height: em($global-header__height--desktop);
 
     &__brand {
       display: block;

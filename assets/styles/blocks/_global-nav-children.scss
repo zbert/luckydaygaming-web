@@ -10,7 +10,6 @@
     }
   }
 
-
   &__options {
     overflow: hidden;
     height: 0;
@@ -46,7 +45,18 @@
     }
   }
 
-  @include respond-to('between') {
-    
+  @include respond-to('desktop') {
+    &__toggle {
+      display: none
+    }
+
+    &__options {
+      overflow: hidden;
+      height: auto;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      border-top: 3px solid #f5a623;
+    }
   }
 }
