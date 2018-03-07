@@ -6,7 +6,8 @@
         <img :src="logoText.url" :alt="logoText.alt" class="global-header__brand-text">
       </a>
 
-      <nav class="global-header__nav">
+      <nav :class="{'global-header__nav--show-menu': showMenu}"
+      class="global-header__nav">
         <ul class="global-header__nav-left">
           <li 
             v-for="(link, index) in header.links.left" 
@@ -34,10 +35,14 @@
       </nav>
 
       <div class="global-header__actions">
-        <button class="global-header__search-toggle">
+        <button @click.prevent="toggleSiteSearch"
+          
+          class="global-header__search-toggle">
           <i class="icon icon-search"></i>
         </button>
-        <button class="global-header__menu-toggle">
+        <button @click.prevent="toggleMenu" 
+          :class="{'global-header__menu-toggle--is-expanded': showMenu}"
+          class="global-header__menu-toggle">
           <i class="icon icon-hamburger"></i>
         </button>
       </div>
@@ -54,6 +59,10 @@ export default {
   components: {
     GlobalNavChildren
   },
+  data: () => ({
+    showMenu: false,
+    showSiteSearch: false
+  }),
   computed: {
     ...mapState(['header']),
     logo () {
@@ -67,6 +76,26 @@ export default {
         url: this.header.brand.text.url,
         alt: this.header.brand.text.alt
       }
+    }
+  },
+  methods: {
+    toggleMenu () {
+       if (this.showMenu) {
+        this.showMenu = false
+        this.unLockBodyScroll()
+      } else {
+        this.showMenu = true
+        this.lockBodyScroll()
+      }
+    },
+    toggleSiteSearch () {
+      this.showSiteSearch = !this.showSiteSearch;
+    },
+    lockBodyScroll () {
+      document.getElementsByTagName('body')[0].classList.add('globals__lock-body-scroll');
+    },
+    unLockBodyScroll () {
+      document.getElementsByTagName('body')[0].classList.remove('globals__lock-body-scroll');
     }
   }
 }

@@ -1,5 +1,6 @@
 $global-header__height: 70px;
-$global-header__height--tablet: 226px;
+$global-header__height--tablet: 83px;
+$global-header__height--desktop: 226px;
 
 .global-header {
   $logo-width: em(34px);
@@ -51,6 +52,13 @@ $global-header__height--tablet: 226px;
 
   &__menu-toggle {
     margin-left: 0.5em;
+    width: em(25px);
+
+    &--is-expanded {
+      .icon {
+        content: map-get($map: $icons, $key: 'close')
+      }
+    }
   }
 
   &__nav {
@@ -60,8 +68,19 @@ $global-header__height--tablet: 226px;
     width: 100%;
     border-top: 3px solid #f5a623;
     background-color: $color__black-dark;
-    
+    opacity: 0;
+    visibility: hidden;
     text-align: center;
+    transition: opacity $transition__timing ease-out,
+      visibility $transition__timing ease-out $transition__timing;
+    
+
+    &--show-menu {
+      @include transition(opacity);
+
+      opacity: 1;
+      visibility: visible;
+    }
   }
 
   &__nav-item {
@@ -85,8 +104,41 @@ $global-header__height--tablet: 226px;
   @include respond-to('between') {
     height: em($global-header__height--tablet);
 
+    &__nav {
+      flex-grow: 1;
+      position: relative;
+      left: auto;
+      top: auto;
+      width: auto;
+      border-top: none;
+      background-color: transparent;
+      opacity: 1;
+      visibility: visible;
+      text-align: left;
+      transition: none;
+      
+    }
+
+    &__nav-right,
+    &__nav-left {
+      display: inline-flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__nav-item {
+      border-bottom: 0;
+      padding: 0;
+    }
+
+
+  
     &__brand {
+      @include center-align(horizontal);
       display: block;
+      width: auto;
+      top: 1em;
 
       &-logo {
         width: $logo-width--tablet
@@ -95,6 +147,10 @@ $global-header__height--tablet: 226px;
       &-text {
         display: none;
       }
+    }
+
+    &__menu-toggle {
+      display: none;
     }
   }
 

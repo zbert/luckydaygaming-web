@@ -10,11 +10,39 @@
     }
   }
 
-  .global-header {
-    &__nav-link {
-      text-transform: none;
-      padding-top: em($spacing__sm);
-      padding-bottom: em($spacing__sm);
+
+  &__options {
+    overflow: hidden;
+    height: 0;
+    
+    .global-header {
+      &__nav-link {
+        text-transform: none;
+        padding-top: em($spacing__sm);
+        padding-bottom: em($spacing__sm);
+      }
+    }
+  }
+
+  &__toggle {
+    @include center-align(vertical);
+
+    color: $color__white;
+    position: absolute;
+    right: 0;
+    border: 0 none;
+    padding:0.25em 0 0.75em 1em;
+    
+    .icon {
+      font-size: em(10px);
+    }
+  }
+
+  &__bar--expanded {
+    .icon {
+      &:before {
+        content: map-get($map: $icons, $key: 'chevron-up');
+      }
     }
   }
 
