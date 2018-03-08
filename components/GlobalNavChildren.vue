@@ -1,5 +1,8 @@
 <template>
-  <div class="global-nav-children">
+  <div :class="[{ 'global-nav-children--is-hovered': isHovered }]"
+    @mouseover.stop="isHovered = true"
+    @mouseleave.stop="isHovered = false"
+    class="global-nav-children">
     <div :class="{'global-nav-children__bar--expanded': showChildren}"
       class="global-nav-children__bar">
       <a :href="linkUrl" class="global-header__nav-link" v-text="linkTitle"></a>
@@ -20,7 +23,8 @@ import gsap from 'gsap'
 export default {
   props: ['linkTitle', 'linkUrl', 'children'],
   data: () =>({
-    showChildren: false
+    showChildren: false,
+    isHovered: false
   }),
   methods: {
     toggleChildren () {

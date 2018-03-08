@@ -1,6 +1,6 @@
 <template>
   <header class="global-header">
-    <div class="wrapper global-header__body">
+    <div class="global-header__body">
       <a href="/" class="global-header__brand">
         <img :src="logo.url" :alt="logo.alt" class="global-header__brand-logo">
         <img :src="logoText.url" :alt="logoText.alt" class="global-header__brand-text">
