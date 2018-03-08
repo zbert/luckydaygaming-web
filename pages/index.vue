@@ -1,6 +1,7 @@
 <template>
   <div>
-    <HeroIntro :hero="hero"></HeroIntro>
+    <hero-intro :hero="hero"></hero-intro>
+    <closing-section :content="bottomSection"></closing-section>
     <section class="container">
       <h1 class="title">
         luckydaygaming-web
@@ -25,10 +26,14 @@
 <script>
 import axios from 'axios'
 import HeroIntro from '~/components/HeroIntro.vue'
+import ClosingSection from '~/components/ClosingSection.vue'
+
 
 export default {
   components: {
-    HeroIntro
+    HeroIntro,
+    ClosingSection
+    
   },
   asyncData ({ params }) {
     return axios.get(`${process.env.KEYSTONE_URL}/api/pages/home`)
