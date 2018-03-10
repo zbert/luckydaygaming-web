@@ -1,25 +1,9 @@
 <template>
   <div>
     <hero-intro :hero="hero"></hero-intro>
+    <messaging-slots :content="topSection"></messaging-slots>
+    <messaging-bling :content="middleSection"></messaging-bling>
     <closing-section :content="bottomSection"></closing-section>
-    <section class="container">
-      <h1 class="title">
-        luckydaygaming-web
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
-    </section>
   </div>
 </template>
 
@@ -27,12 +11,16 @@
 import axios from 'axios'
 import HeroIntro from '~/components/HeroIntro.vue'
 import ClosingSection from '~/components/ClosingSection.vue'
+import MessagingSlots from '~/components/MessagingSlots.vue'
+import MessagingBling from '~/components/MessagingBling.vue'
 
 
 export default {
   components: {
     HeroIntro,
-    ClosingSection
+    ClosingSection,
+    MessagingSlots,
+    MessagingBling
     
   },
   asyncData ({ params }) {

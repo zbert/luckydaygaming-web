@@ -12,7 +12,7 @@
     <a :href="content.cta.url" class="closing-section__cta btn-primary btn-primary--gold">
       {{content.cta.label}}
     </a>
-  </div>
+  </div>  
 </section>
 </template>
 

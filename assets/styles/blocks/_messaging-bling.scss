@@ -1,0 +1,211 @@
+.messaging-bling {
+  $button-size: 56px;
+  $coin-padding: 120px +  $spacing__lg;
+  background-color: $color__white;
+  background-image: radial-gradient(circle at 67% 42%, rgba(255, 255, 255, 0), rgba(22, 38, 58, 0.15));
+  padding: em($spacing__lg) 0 em($coin-padding);
+  text-align: center;
+  position: relative;
+
+  &:after,
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  //faded out coins
+  &:before {
+    background-image: url('~/assets/images/home/fadedcoins.png');
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: auto em(250px);
+    height: em(150px);
+  }
+
+  $coin-size: em(150px);
+
+  //prominent coins
+  &:after {
+    background-image: url('~/assets/images/home/coinstack.png');
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: auto $coin-size;
+    height:  $coin-size;
+    bottom: $coin-size * -0.5;
+  }
+
+
+  &__body {
+    position: relative;
+    z-index: 5;
+    padding-bottom: em($button-size + $spacing__lg);
+
+    background-image: url('~/assets/images/home/coinfaded-alignleft.png');
+    background-position: 0 80%;
+    background-repeat: no-repeat;
+    background-size: auto em(90px);
+  }
+
+
+  &__heading {
+    margin-bottom: $spacing__sm * 2;
+  }
+
+  &__cta-box {
+    position: absolute;
+    bottom: 0;
+    left: em($wrapper-padding);
+    right: em($wrapper-padding);
+  }
+
+  &__figure {
+    margin-top: em($spacing__unit)
+  }
+
+  &__image {
+    max-width: em(350px);
+  }
+
+  & + .closing-section {
+    padding-top: $coin-size/1.5;
+  }
+
+  @include respond-to('between') {
+    padding-top: em($spacing__lg * 2);
+    text-align: left;
+
+    //faded out coins
+    &:before {
+      background-size: 100% auto;
+    }
+
+    $coin-size: em(215px);
+
+    //prominent coins
+    &:after {
+      background-size: 105% auto;
+      height:  $coin-size;
+      bottom: $coin-size * -0.45;
+    }
+
+    &__body {
+      position: static;
+      padding-bottom: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      //floating coin
+
+      background-position: 0 0;
+      background-size: auto em(150px);
+
+      &:before {
+        $width: em(100px); 
+        $height: em(150px);
+        content: '';
+        display: block;
+        width: $width;
+        height: $height;
+        background-image: url('~/assets/images/home/coin-align-right.png');
+        background-repeat: no-repeat;
+        
+        background-size: contain;
+        position: absolute;
+        top: $height/-2;
+        right: 0;
+      }
+    }
+
+    &__figure {
+      width: auto;
+      flex-grow: 1;
+      position: relative;
+      height: auto;
+      text-align: right;
+    }
+
+    &__image {
+      width: 100%;
+      max-width: em(550px);
+    }
+
+    &__content {
+      padding-top: em($spacing__xl);
+      padding-bottom: em($spacing__xl);
+      max-width: em(443px);
+      width: 45%;
+      flex-shrink: 0;
+      background-image: url('~/assets/images/home/coinfaded-aligncenter.png');
+      background-position: 100% 100%;
+      background-repeat: no-repeat;
+      background-size: auto em(150px);
+    }
+
+    &__cta-box {
+      position: relative;
+      bottom: auto;
+      left: auto;
+      right: auto;
+      margin-top: em($spacing__md);
+    }
+
+    & + .closing-section {
+      padding-top: $coin-size;
+    }
+  }
+
+  @include respond-to('desktop') {
+ 
+
+     
+    &:before {
+      background-size: cover;
+      height: em(200px);
+    }
+
+    &:after {
+      
+    }
+
+    $coin-size: em(318px);
+
+    //prominent coins
+    &:after {
+      background-image: url('~/assets/images/home/coinstack.png');
+      background-position: center 0;
+      background-repeat: no-repeat;
+      background-size: auto $coin-size;
+      height: $coin-size;
+      bottom: $coin-size * -0.5;
+    }
+
+  }
+
+  @include respond-to('desktop-large') {
+    &__body {
+      background-image: none;
+
+      &:before {
+        width: em(201px);
+        height: em(281px);
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        left:0;
+        top: em($spacing__md);
+        width: em(175px);
+        height: em(318px);
+        background-image: url('~/assets/images/home/coinfaded-alignleft.png');
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+}

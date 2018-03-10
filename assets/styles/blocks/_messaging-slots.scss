@@ -1,0 +1,72 @@
+.messaging-slots {
+  $image-window: 265px;
+  background-color: $color__gray-text;
+  background-image: radial-gradient(circle at 34% 70%, #faedbd, #f99c22); 
+  padding: em($image-window + $spacing__sm) 0 em($spacing__lg);
+  text-align: center;
+  position: relative;
+
+
+  &__heading {
+    margin-bottom: $spacing__sm * 2;
+  }
+
+  .ty__heading2 {
+    font-size: em($font-size__h2--tablet);
+  }
+
+  &__cta {
+    margin-top: em($spacing__md);
+  }
+
+  &__figure{
+    position: absolute;
+    width: 100%;
+    height: em($image-window);
+    top: em($spacing__lg * -1);
+    left: 0;
+    z-index: 5;
+    text-align: center;
+  }
+
+  &__image {
+    max-height: em(315px);
+  } 
+
+  @include respond-to('between') {
+    text-align: left;
+    padding: 0;
+
+    &__body {
+      position: relative;
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row-reverse;
+      
+    }    
+
+    &__figure {
+      width: auto;
+      flex-grow: 1;
+      position: relative;
+      height: auto;
+      top: em($spacing__sm * -1);
+    }
+
+    &__image {
+      @include center-align(vertical);
+
+      right: 0;
+      height: 150%;
+      max-height: em(720px)
+    }
+
+    &__content {
+      padding-top: em($spacing__xl);
+      padding-bottom: em($spacing__xl);
+      max-width: em(443px);
+      width: 45%;
+      flex-shrink: 0;
+    }
+  }
+}
