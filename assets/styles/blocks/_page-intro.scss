@@ -1,0 +1,13 @@
+.page-intro {
+  padding: em($spacing__lg) 0;
+  text-align: center;
+
+  @include respond-to('between') {
+    padding-top:  em($spacing__lg*2);
+    padding-bottom: em($spacing__lg*3);
+  }
+
+  @include respond-to('desktop-large') {
+    padding-top:  em($global-header__height--desktop + $spacing__lg*2);
+  }
+}

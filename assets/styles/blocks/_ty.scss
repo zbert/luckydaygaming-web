@@ -63,6 +63,13 @@ line-height: 1.25;
 		letter-spacing: 0.1em;
 	}
 
+	&__body-display-large {
+		@include font($family: $font-family__primary, $size: $font-size__body-display-large);
+
+		line-height: 1.5;
+		letter-spacing: 0.1em;
+	}
+
 	&__body-normal {
 		@include font($family: $font-family__secondary, $size: $font-size__body-normal);
 
@@ -81,5 +88,9 @@ line-height: 1.25;
 		&__body-display {
 			font-size: em($font-size__body-display--tablet);
 		}	
+
+		&__body-display-large {
+			font-size: em($font-size__body-display-large--tablet);
+		}
 	}
 }

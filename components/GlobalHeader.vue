@@ -1,5 +1,7 @@
 <template>
-  <header class="global-header">
+  <header 
+    class="global-header"
+    :class="{'global-header--transparent': isHomepage}">
     <div class="global-header__body">
       <a href="/" class="global-header__brand">
         <img :src="logo.url" :alt="logo.alt" class="global-header__brand-logo">
@@ -61,8 +63,12 @@ export default {
   },
   data: () => ({
     showMenu: false,
-    showSiteSearch: false
+    showSiteSearch: false,
+    isHomepage: false
   }),
+  mounted() {
+    this.checkCurrentSection()
+  },
   computed: {
     ...mapState(['header']),
     logo () {
@@ -96,6 +102,9 @@ export default {
     },
     unLockBodyScroll () {
       document.getElementsByTagName('body')[0].classList.remove('globals__lock-body-scroll');
+    },
+    checkCurrentSection () {
+      this.isHomepage = (this.$route.params.path === '/')
     }
   }
 }

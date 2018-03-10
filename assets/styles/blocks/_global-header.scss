@@ -105,8 +105,11 @@ $global-header__height--desktop: 226px;
   }
 
   @include respond-to('desktop') {
-    background-color: transparent;
     height: em($global-header__height--tablet);
+
+    &--transparent {
+      background-color: transparent;
+    }
 
     &__nav {
       flex-grow: 1;
