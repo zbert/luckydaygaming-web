@@ -1,0 +1,41 @@
+.listing-pages {
+  text-align: center;
+
+  &__section {
+    @include bg-cover;
+    padding: em($spacing__lg) 0;
+    background-position: center;
+    color: $color__white;
+
+    &:nth-child(2n) {
+      color: $color__black;
+    }
+  }
+
+  &__heading {
+    margin-bottom: $spacing__sm * 2;
+  }
+
+  &__cta {
+    margin-top: em($spacing__md);
+  }
+
+  @include respond-to('between') {
+    text-align: left;
+    &__content {
+      max-width: em(427px);
+      display: inline-block;
+    }
+
+    &__description  {
+      text-align: left;
+    }
+    &__section {
+      padding: em($spacing__xxl) 0;
+
+      &:nth-child(2n+1) {
+        text-align: right;
+      }
+    }
+  }
+}

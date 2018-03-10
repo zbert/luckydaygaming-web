@@ -22,7 +22,7 @@ export default {
     ClosingSection
   },
   asyncData ({ params }) {
-    return axios.get(`${process.env.KEYSTONE_URL}/api/pages/partnerships`)
+    return axios.get(`${process.env.KEYSTONE_URL}/api/pages/our-company`)
       .then(res => res.data)
       .catch(reason => {
         console.error(reason)
