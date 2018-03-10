@@ -9,7 +9,7 @@
       <div class="ty__body-display" v-html="hero.intro"></div>
     </div>
 
-    <button class="hero-intro__cta btn btn__link">
+    <button class="hero-intro__cta btn btn--link">
       <span>{{hero.cta}}</span>
       <i class="icon icon-arrow-long-down"></i>
     </button>

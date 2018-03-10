@@ -40,4 +40,8 @@
       margin-bottom: em($spacing__md);
     }
   }
+
+  @include respond-to('desktop-large') {
+    padding-top:  em($global-header__height--desktop + $spacing__lg*2);
+  }
 }

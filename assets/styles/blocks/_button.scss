@@ -32,11 +32,18 @@ button {
   min-width: em($button__min-width);
 
 
-  &__link {
+  &--link {
     border: 0 none;
   }
-  
-  @include respond-to('between') {
-    
+}
+
+.btn-primary {
+  @extend .btn;
+  padding: em($button__padding) em($spacing__unit);
+
+  &--gold {
+    background-color: $color__brand-gold;
+    color: $color__white;
+    border-color: $color__brand-gold;
   }
 }

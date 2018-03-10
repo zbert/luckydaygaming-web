@@ -1,0 +1,25 @@
+
+.closing-section {
+  background-color: $color__gray-text;
+  background-image: radial-gradient(circle at 50% 71%, $color__gray--medium, $color__black-dark);
+  color: $color__white;
+  padding: em($spacing__lg) 0;
+  text-align: center;
+
+
+  &__heading {
+    margin-bottom: $spacing__sm * 2;
+  }
+
+  .ty__heading2 {
+    font-size: em($font-size__h2--tablet);
+  }
+
+  &__cta {
+    margin-top: em($spacing__md);
+  }
+
+  @include respond-to('between') {
+    padding: em($spacing__xxl) 0;
+  }
+}
