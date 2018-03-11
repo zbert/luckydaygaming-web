@@ -6,9 +6,11 @@
     padding: em($spacing__lg) 0;
     background-position: center;
     color: $color__white;
+    background-color: $color__gray--medium;
 
     &:nth-child(2n) {
       color: $color__black;
+      background-color: #e6e6e6;
     }
   }
 
