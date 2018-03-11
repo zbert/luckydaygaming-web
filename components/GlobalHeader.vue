@@ -24,14 +24,8 @@
             v-for="(link, index) in header.links.right" 
             :key="'leftNav' + index"
             class="global-header__nav-item">
-            <a :href="link.url" class="global-header__nav-link">{{link.label}}</a>
-
-            <ul v-if="link.children" class="global-header__nav-children">
-              <li v-for="(child, index) in link.children" :key="'childNode' + index"
-                class="global-header__nav-children-item">
-                <a :href="child.url" class="global-header__nav-link">{{child.label}}</a>
-              </li>
-            </ul>
+            <global-nav-children v-if="link.children" :link-url="link.url" :link-title="link.label" :children="link.children"></global-nav-children>
+            <a v-else :href="link.url" class="global-header__nav-link">{{link.label}}</a>
           </li>
         </ul>
       </nav>
@@ -47,6 +41,7 @@
           class="global-header__menu-toggle">
           <i class="icon icon-hamburger"></i>
         </button>
+        <global-search :show-search="showSiteSearch" />
       </div>
     </div>
   </header>
@@ -54,12 +49,14 @@
 
 <script>
 import GlobalNavChildren from '~/components/GlobalNavChildren.vue'
+import GlobalSearch from '~/components/GlobalSearch.vue'
 import { mapState } from 'vuex'
 
 
 export default {
   components: {
-    GlobalNavChildren
+    GlobalNavChildren,
+    GlobalSearch
   },
   data: () => ({
     showMenu: false,

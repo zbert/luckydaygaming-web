@@ -1,0 +1,48 @@
+$searchbox__icon-size: 20px;
+$searchbox__padding: 1em;
+
+.searchbox {
+  position: relative;
+  border: 1px solid transparent;
+
+  &__input {
+  	line-height: 1.1;
+		width: 100%;
+		border-color: transparent;
+		color: $color__black-dark;
+		padding: $spacing__unit $searchbox__padding;
+		padding-right: $searchbox__padding + em($searchbox__icon-size);
+    
+    @include font($family: $font-family__primary, $weight: 'bold');
+
+		@include placeholder {
+			color: $color__black-dark;
+			opacity: 1;
+		}
+  }
+
+  &__button {
+  	position: absolute;
+		right: 0;
+		padding-right: $searchbox__padding;
+		top: 0;
+		height: 100%;
+		text-align: right;
+		background-color: transparent;
+		border-color: transparent;
+    color: $color__brand-gold;
+    
+    &:before {
+      font-size: em($searchbox__icon-size);
+    }
+  }
+
+
+	@include respond-to('between') {
+		// &__input {
+		// 	font-size: px-to-em($searchbox__fontsize--tablet);
+		// 	padding: $searchbox__padding--tablet/1.25 $searchbox__padding--tablet;
+		// }
+	}
+}
+

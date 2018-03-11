@@ -1,0 +1,27 @@
+.global-search {
+  border-top: 3px solid #f5a623;
+  border-width: 3px 0 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $transition__timing ease-out,
+      visibility $transition__timing ease-out $transition__timing;
+
+
+  &--show-search {
+    @include transition(opacity);
+
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .searchbox {
+    &__input {
+      border: 0 none;
+    }
+  }
+  
+
+  @include respond-to('between') {
+
+  }
+}

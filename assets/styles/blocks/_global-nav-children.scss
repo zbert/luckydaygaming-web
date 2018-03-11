@@ -24,11 +24,10 @@
   }
 
   &__toggle {
-    @include center-align(vertical);
-
     color: $color__white;
     position: absolute;
     right: 0;
+    height: 100%;
     border: 0 none;
     padding:0.25em 0 0.75em 1em;
     
@@ -38,12 +37,17 @@
   }
 
   &__bar--expanded {
+    .global-header__nav-link,
+    .global-nav-children__toggle {
+      color: $color__brand-gold;
+    }
     .icon {
       &:before {
         content: map-get($map: $icons, $key: 'chevron-up');
       }
     }
   }
+  
 
   @include respond-to('desktop') {
     position: relative;

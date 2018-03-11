@@ -54,8 +54,8 @@ $global-header__height--desktop: 226px;
   }
 
   &__menu-toggle {
-    margin-left: 0.5em;
     width: em(25px);
+    text-align: right;
 
     &--is-expanded {
       .icon {
@@ -93,6 +93,8 @@ $global-header__height--desktop: 226px;
   }
 
   &__nav-link {
+    @include transition(color);
+
     color: $color__white;
     letter-spacing: 0.1em;
     line-height: 1.4;
@@ -102,6 +104,46 @@ $global-header__height--desktop: 226px;
     padding-bottom: em($spacing__unit);
     display: inline-block;
     width: 100%;
+  }
+
+  .global-search {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+  }
+
+  @include respond-to('between') {
+    &__nav-item {
+      position: relative;
+
+      & > .global-header__nav-link,
+      .global-nav-children__bar > .global-header__nav-link {
+        &:before {
+          @include center-align(horizontal);
+          @include transition(opacity);
+  
+          content: '';
+          width: em(146px);
+          height: em(83px);
+          background: url('~/assets/images/spotlight.png') no-repeat center top;
+          background-size: contain;
+          top: 0;
+          opacity: 0;
+        }
+        &:hover {
+          &:before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    &__nav-link {
+      &:hover {
+        color: $color__brand-gold;
+      }
+    }
   }
 
   @include respond-to('desktop') {
@@ -190,6 +232,21 @@ $global-header__height--desktop: 226px;
 
     &__menu-toggle {
       display: none;
+    }
+
+    &__search-toggle {
+      height: 100%;
+    }
+
+    &__actions {
+      position: relative;
+      height: 100%;
+
+      .global-search {
+        right: 0;
+        left: auto;
+        width: em(285px);
+      }
     }
   }
 
