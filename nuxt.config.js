@@ -25,6 +25,10 @@ module.exports = {
     // SCSS file in the project
     '@/assets/styles/main.scss'
   ],
+  plugins: [
+    // ssr: false to only include it on client-side
+    { src: '~/plugins/vue-scroll.js', ssr: false }
+  ],
   router: {
     middleware: 'get-layout'
   },

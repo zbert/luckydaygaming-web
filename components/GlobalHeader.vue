@@ -1,5 +1,6 @@
 <template>
-  <header 
+  <header
+    v-scroll=""
     class="global-header"
     :class="{'global-header--transparent': isHomepage}">
     <div class="global-header__body">
@@ -51,7 +52,6 @@
 import GlobalNavChildren from '~/components/GlobalNavChildren.vue'
 import GlobalSearch from '~/components/GlobalSearch.vue'
 import { mapState } from 'vuex'
-
 
 export default {
   components: {

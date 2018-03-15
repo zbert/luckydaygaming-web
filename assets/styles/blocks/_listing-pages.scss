@@ -25,16 +25,14 @@
 
   @include respond-to('between') {
     text-align: left;
+
     &__content {
       max-width: em(427px);
       display: inline-block;
     }
 
-    &__description  {
-      text-align: left;
-    }
     &__section {
-      padding: em($spacing__lg) 0;
+      padding: em($spacing__xl) 0;
 
       &:nth-child(2n+1) {
         text-align: right;
