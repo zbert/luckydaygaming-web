@@ -13,7 +13,7 @@
     padding-bottom: em($spacing__lg*2);
   }
 
-  @include respond-to('desktop-large') {
-    padding-top:  em($global-header__height--desktop + $spacing__lg*2);
-  }
+  // @include respond-to('header-desktop') {
+  //   padding-top:  em($global-header__height--desktop + $spacing__lg*2);
+  // }
 }

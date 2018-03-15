@@ -1,8 +1,10 @@
 <template>
   <header
-    v-scroll=""
+    v-scroll="handleHeaderScroll"
     class="global-header"
-    :class="{'global-header--transparent': isHomepage}">
+    :class="{
+      'global-header--has-collapsed': headerIsCollapsed,
+      'global-header--is-collapsible': isHomepage}">
     <div class="global-header__body">
       <a href="/" class="global-header__brand">
         <img :src="logo.url" :alt="logo.alt" class="global-header__brand-logo">
@@ -61,8 +63,12 @@ export default {
   data: () => ({
     showMenu: false,
     showSiteSearch: false,
-    isHomepage: false
+    isHomepage: false,
+    headerIsCollapsed: false
   }),
+  created() {
+    this.isHomepage = (this.$route.fullPath === '/')
+  },
   mounted() {
     this.checkCurrentSection()
   },
@@ -82,6 +88,11 @@ export default {
     }
   },
   methods: {
+    handleHeaderScroll (scrollOffset) {
+      if (this.isHomepage) {
+        this.headerIsCollapsed = (scrollOffset >= 5) 
+      }
+    },
     toggleMenu () {
        if (this.showMenu) {
         this.showMenu = false
@@ -101,7 +112,7 @@ export default {
       document.getElementsByTagName('body')[0].classList.remove('globals__lock-body-scroll');
     },
     checkCurrentSection () {
-      this.isHomepage = (this.$route.params.path === '/')
+      // this.isHomepage = (this.$route.params.path === '/')
     }
   }
 }

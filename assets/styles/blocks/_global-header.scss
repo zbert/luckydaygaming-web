@@ -1,6 +1,8 @@
 $global-header__height: 70px;
 $global-header__height--tablet: 83px;
-$global-header__height--desktop: 226px;
+$global-header__height--desktop: 145px;
+
+$global-header__logo-height: 226px;
 
 .global-header {
   $logo-width: em(34px);
@@ -8,11 +10,13 @@ $global-header__height--desktop: 226px;
   $logo-width--desktop: em(160px);
   $logo-text-width: em(132px);
 
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: em($global-header__height);
   background-color: $color__black-dark;
   z-index: $zindex__global-header;
+
+  @include transition(height, background-color);
 
 
   &__body {
@@ -121,7 +125,7 @@ $global-header__height--desktop: 226px;
       .global-nav-children__bar > .global-header__nav-link {
         &:before {
           @include center-align(horizontal);
-          @include transition(opacity);
+          @include transition(opacity, top);
   
           content: '';
           width: em(146px);
@@ -149,10 +153,6 @@ $global-header__height--desktop: 226px;
   @include respond-to('desktop') {
     height: em($global-header__height--tablet);
 
-    &--transparent {
-      background-color: transparent;
-    }
-
     &__nav {
       flex-grow: 1;
       position: relative;
@@ -165,7 +165,6 @@ $global-header__height--desktop: 226px;
       visibility: visible;
       text-align: left;
       transition: none;
-      
     }
 
     &__nav-item {
@@ -217,7 +216,8 @@ $global-header__height--desktop: 226px;
       margin-left: em(32px);
 
       &-logo {
-        width: $logo-width--tablet
+        @include transition(width);
+        width: $logo-width--tablet;
       }
 
       &-text {
@@ -250,15 +250,54 @@ $global-header__height--desktop: 226px;
     }
   }
 
-  @include respond-to('desktop-large') {
-    height: em($global-header__height--desktop);
-    left: 50%;
-    transform: translateX(-50%);
+  @include respond-to('header-desktop') {
 
-    &__brand {
-      display: block;
-      &-logo {
-        width: $logo-width--desktop
+    &--is-collapsible {
+      background-color: transparent;
+      background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.49));
+      height: em($global-header__height--desktop);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    &--is-collapsible &{
+      &__brand {
+        &-logo {
+          width: $logo-width--desktop
+        }
+      }
+
+      &__nav-item {  
+        & > .global-header__nav-link,
+        .global-nav-children__bar > .global-header__nav-link {
+          &:before {
+            top: em($global-header__height--desktop - $global-header__height--tablet - 30px) * -1;
+          }
+        }
+      }
+    }
+
+    &--has-collapsed {
+      background-color: $color__black-dark;
+      height: em($global-header__height--tablet);
+    }
+
+    &--has-collapsed & {
+      &__brand {
+        display: block;
+        &-logo {
+          width: $logo-width--tablet
+        }
+      }
+      &__nav-item {
+        position: relative;
+  
+        & > .global-header__nav-link,
+        .global-nav-children__bar > .global-header__nav-link {
+          &:before {
+            top: 0;
+          }
+        }
       }
     }
   }

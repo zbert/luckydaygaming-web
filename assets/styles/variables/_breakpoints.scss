@@ -8,7 +8,7 @@ $screen-sm:                  768px !default;
 // Medium screen / desktop
 $screen-md:                  960px !default;
 // Large screen / wide desktop
-$screen-lg:                  1300px !default;
+$screen-lg:                  1100px !default;
 //additional sizes
 $screen-xl:                  1600px !default;
 $screen-xxl:                 1920px !default;
@@ -18,7 +18,8 @@ $breakpoints: (
   'landscape':  em($screen-xs), // 480px
   'between':  em($screen-sm), //767px
   'desktop': em($screen-md), //992px
-  'desktop-large':  em($screen-xl)
+  'desktop-large':  em($screen-xl),
+  'header-desktop':  em($screen-lg)
 ) !default;
 
 /// Mixin to manage responsive breakpoints
