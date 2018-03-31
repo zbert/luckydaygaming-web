@@ -5,12 +5,11 @@
     :class="{
       'global-header--has-collapsed': headerIsCollapsed,
       'global-header--is-collapsible': isHomepage}">
-    <div class="global-header__body">
+    <div class="global-header__body wrapper">
       <a href="/" class="global-header__brand">
-        <img :src="logo.url" :alt="logo.alt" class="global-header__brand-logo">
+        <img src="~/assets/images/luckydayllc.png" :alt="logo.alt" class="global-header__brand-logo">
         <img :src="logoText.url" :alt="logoText.alt" class="global-header__brand-text">
       </a>
-
       <nav :class="{'global-header__nav--show-menu': showMenu}"
       class="global-header__nav">
         <ul class="global-header__nav-left">
@@ -32,19 +31,12 @@
           </li>
         </ul>
       </nav>
-
       <div class="global-header__actions">
-        <button @click.prevent="toggleSiteSearch"
-          
-          class="global-header__search-toggle">
-          <i class="icon icon-search"></i>
-        </button>
         <button @click.prevent="toggleMenu" 
           :class="{'global-header__menu-toggle--is-expanded': showMenu}"
           class="global-header__menu-toggle">
           <i class="icon icon-hamburger"></i>
         </button>
-        <global-search :show-search="showSiteSearch" />
       </div>
     </div>
   </header>
@@ -52,17 +44,15 @@
 
 <script>
 import GlobalNavChildren from '~/components/GlobalNavChildren.vue'
-import GlobalSearch from '~/components/GlobalSearch.vue'
+
 import { mapState } from 'vuex'
 
 export default {
   components: {
-    GlobalNavChildren,
-    GlobalSearch
+    GlobalNavChildren
   },
   data: () => ({
     showMenu: false,
-    showSiteSearch: false,
     isHomepage: false,
     headerIsCollapsed: false
   }),
@@ -102,9 +92,7 @@ export default {
         this.lockBodyScroll()
       }
     },
-    toggleSiteSearch () {
-      this.showSiteSearch = !this.showSiteSearch;
-    },
+
     lockBodyScroll () {
       document.getElementsByTagName('body')[0].classList.add('globals__lock-body-scroll');
     },
