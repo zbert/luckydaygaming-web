@@ -1,0 +1,16 @@
+.intro-box {
+  border: 1px solid $color__brand-gold;
+  background-color: rgba(0,0,0, 0.65);
+  background-blend-mode: multiply;
+  padding: px-to-em($spacing__md) px-to-em($wrapper-padding);
+  max-width: px-to-em(700px) + px-to-em($spacing__lg * 2);
+
+  @include respond-to('between') {
+    padding-top:  em($global-header__height--tablet + $spacing__lg*2);
+    padding-bottom: em($spacing__lg*2);
+  }
+
+  // @include respond-to('header-desktop') {
+  //   padding-top:  em($global-header__height--desktop + $spacing__lg*2);
+  // }
+}
