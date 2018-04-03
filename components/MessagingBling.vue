@@ -1,4 +1,4 @@
-<template>  
+<template>
 <section class="messaging-bling">
   <div class="wrapper messaging-bling__body">
     <div class="messaging-bling__content">
@@ -11,7 +11,7 @@
       </div>
 
       <div class="messaging-bling__cta-box">
-        <a :href="content.cta.url" class="messaging-bling__cta btn-primary btn-primary--ghost-black">
+        <a :href="content.cta.url" class="messaging-bling__cta btn-primary btn-primary--gold">
           {{content.cta.label}}
         </a>
       </div>

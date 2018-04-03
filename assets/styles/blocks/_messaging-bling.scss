@@ -1,11 +1,12 @@
 .messaging-bling {
   $button-size: 56px;
   $coin-padding: 120px +  $spacing__lg;
-  background-color: $color__white;
-  background-image: radial-gradient(circle at 67% 42%, rgba(255, 255, 255, 0), rgba(22, 38, 58, 0.15));
+  background-color: $color__black;
+  background-image: radial-gradient(circle at 71% 70%, rgba(255, 172, 79, 0.28), rgba(255, 152, 0, 0));
   padding: em($spacing__lg) 0 em($coin-padding);
   text-align: center;
   position: relative;
+  color: $color__white;
 
   &:after,
   &:before {
@@ -165,10 +166,6 @@
     &:before {
       background-size: cover;
       height: em(200px);
-    }
-
-    &:after {
-      
     }
 
     $coin-size: em(318px);
