@@ -24,7 +24,7 @@
         <social-links :social-options="socialLinks"></social-links>
       </div>
       <div class="global-footer__column global-footer__column--main">
-        <img src="/images/brand-logo.png" class="global-footer__logo" />
+        <img src="~/assets/images/luckydayllc.png" class="global-footer__logo" />
         <p class="global-footer__copyright">{{footer.copyright}}</p>
       </div>
     </div>
